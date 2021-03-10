@@ -14,9 +14,12 @@ class Review(db.Model):
     car_id = db.Column(db.Integer, db.ForeignKey('cars.id'), nullable=False)
 
 class UpdateReview(FlaskForm):
-    newmodel = StringField('Model')
     newreview = StringField('Review')
-    submit = SubmitField('Add Car')
+    submit = SubmitField('Update Review')
+
+class AddCar(FlaskForm):
+    newmodel = StringField('Model')
+    submit = SubmitField('Add Car')    
 
 # db.drop_all()
 # db.create_all()
@@ -25,7 +28,7 @@ class UpdateReview(FlaskForm):
 # db.session.add(testcar)
 # db.session.commit()
 
-# testreview = Review(post='test bmw', car_id= 1)
+# testreview = Review(post='test ford', car_id= 3)
 # db.session.add(testreview)
 # db.session.commit()
 
