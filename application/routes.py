@@ -46,8 +46,13 @@ def reviews(id):
             error = "Please fill in review"
         else:
             getcar = Review.query.filter_by(car_id=id).first()
-            getcar.post = newreview
-            db.session.commit()
+            if not getcar:
+                addnewreview = Review(post = newreview, car_id = id)
+                db.session.add(addnewreview)
+                db.session.commit()
+            else:
+                getcar.post = newreview
+                db.session.commit()
             return 'Review has been updated'
     return render_template('reviews.html', title='review', reviews=carryviews, form=form, message=error)   
 
