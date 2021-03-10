@@ -1,10 +1,21 @@
+{% extends 'navbar.html' %}
+
+{% block body %}
 <h1>Home Page</h1>
+
+{% block car_content %}
 
 <html>
   <body>
-    <form method="POST" action="/">
-      <input type="text" name="title">
-      <input type="submit" value="Add">
-    </form>
+      {% for car in cars %}
+      <div>
+        <p>{{ car.model }}</p>
+        <a href="/reviews/{{car.id}}">Reviews</a>
+      </div>
+      {% endfor %}
+
   </body>
 </html>
+	
+{% endblock %}
+{% endblock body %}
