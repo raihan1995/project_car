@@ -1,10 +1,18 @@
+{% extends "navbar.html" %}
+
+{% block body %}
+
+<h1>Reviews Page</h1>
+
 <html>
   <body>
       {% for review in reviews %}
-      <div>
+        <div>
         <p>{{ review.post }}</p>
       </div>
       {% endfor %}
   
   </body>
 </html>
+
+{% endblock body %}
