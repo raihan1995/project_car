@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db
-from application.models import Cars, Review, UpdateReview
+from application.models import Cars, Review, UpdateReview, AddCar
 from application import app, db
 
 @app.route("/")
@@ -18,7 +18,7 @@ def about():
 @app.route("/addcar", methods=['GET', 'POST'])
 def addcar():
     error = ""
-    form = UpdateReview()
+    form = AddCar()
 
     if request.method == 'POST':
         newmodel = form.newmodel.data
@@ -36,8 +36,20 @@ def addcar():
 @app.route('/reviews/<int:id>', methods=['GET', 'POST'])
 def reviews(id):
     carryviews = Review.query.filter_by(car_id=id).all()
-    
-    return render_template('reviews.html', title='review', reviews=carryviews)   
+    error = ""
+    form = UpdateReview()
+
+    if request.method == 'POST':
+        newreview = form.newreview.data
+
+        if len(newreview) == 0:
+            error = "Please fill in review"
+        else:
+            getcar = Review.query.filter_by(car_id=id).first()
+            getcar.post = newreview
+            db.session.commit()
+            return 'Review has been updated'
+    return render_template('reviews.html', title='review', reviews=carryviews, form=form, message=error)   
 
 
     

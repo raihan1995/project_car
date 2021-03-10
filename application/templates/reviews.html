@@ -11,7 +11,16 @@
         <p>{{ review.post }}</p>
       </div>
       {% endfor %}
-  
+
+      <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.newreview.label }} {{ form.newreview }}
+            <br>
+            {{ form.submit }}
+        {{ message }}
+        </form>
+    </div>
   </body>
 </html>
 
