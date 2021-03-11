@@ -1,0 +1,31 @@
+{% extends 'navbar.html' %}
+
+{% block body %}
+<h1>Delete Page</h1>
+
+{% block car_content %}
+
+<html>
+  <body>
+      {% for car in cars %}
+      <div>
+        <p>{{ car.model }}</p>
+        <a href="/removecar/{{car.id}}">Delete Car</a>
+      </div>
+      {% endfor %}
+
+    <!-- <div class='form'>
+        <form method='DEL' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.deletemodel.label }} {{ form.deletemodel }}
+            <br>
+            {{ form.submit }}
+        {{ message }}
+        </form>
+    </div> -->
+
+  </body>
+</html>
+	
+{% endblock %}
+{% endblock body %}

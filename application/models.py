@@ -2,6 +2,7 @@ from application import app, db
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 class Cars(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,12 +15,17 @@ class Review(db.Model):
     car_id = db.Column(db.Integer, db.ForeignKey('cars.id'), nullable=False)
 
 class UpdateReview(FlaskForm):
-    newreview = StringField('Review')
+    newreview = StringField('Review', validators=[DataRequired()])
     submit = SubmitField('Update Review')
 
 class AddCar(FlaskForm):
-    newmodel = StringField('Model')
-    submit = SubmitField('Add Car')    
+    newmodel = StringField('Model', validators=[DataRequired()])
+    submit = SubmitField('Add Car')
+
+class DeleteCar(FlaskForm):
+    deletemodel = StringField('Enter car to delete:', validators=[DataRequired()])
+    submit = SubmitField('Delete Car')  
+    
 
 # db.drop_all()
 # db.create_all()
@@ -39,3 +45,4 @@ class AddCar(FlaskForm):
 # testreview = Review(post='test mercedes', car_id= 2)
 # db.session.add(testreview)
 # db.session.commit()
+
