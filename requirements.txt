@@ -2,3 +2,6 @@ flask
 Flask-SQLAlchemy
 flask-wtf
 pymysql
+pytest
+flask_testing
+pytest-cov

@@ -1,6 +1,6 @@
 from flask import render_template, redirect, url_for, request
 from application import app, db
-from application.models import Cars, Review, UpdateReview, AddCar
+from application.models import Cars, Review, UpdateReview, AddCar, DeleteCar
 from application import app, db
 
 @app.route("/")
@@ -56,5 +56,28 @@ def reviews(id):
             return 'Review has been updated'
     return render_template('reviews.html', title='review', reviews=carryviews, form=form, message=error)   
 
+@app.route('/delete', methods=['GET', 'DEL'])
+def delete():
+    carData = Cars.query.all()
+    error = ""
+    form = DeleteCar()
+
+    return render_template("delete.html", title='Delete', cars=carData, form=form, message=error)
+
+@app.route('/removecar/<int:id>', methods=['GET', 'DEL'])
+def removecar(id):
+    getreview = Review.query.filter_by(car_id=id).first()
+    if not getreview:
+        return "Please attach a review to the car first"
+    else:
+        carid = getreview.car_id
+        cartodelete = Cars.query.filter_by(id=carid).first()
+       
+        db.session.delete(getreview)
+        db.session.commit()
+        db.session.delete(cartodelete)
+        db.session.commit()
+    return 'Car has been deleted, please return to home page'
+    
 
     
