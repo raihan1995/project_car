@@ -75,14 +75,21 @@ class TestAdd(TestBase):
             data = dict(newreview="nicecar"),
             follow_redirects=True
         )
-
         self.assertIn(b'Review has been updated',response.data)
+        #Test to see if the review exists when review is queried
+        response1 = self.client.get(url_for('reviews', id=1))
+        self.assertIn(b'nicecar',response1.data)
 
 class TestDelete(TestBase):
     def test_deletecar_del(self):
         response = self.client.get(
             url_for('removecar', id=1),
-            data = dict(deletemodel="mazda"),
-            follow_redirects=True
+            #data = dict(deletemodel="mazda"),
+            #follow_redirects=True
         )
         self.assertIn(b'Car has been deleted, please return to home page',response.data)
+        
+        response1 = self.client.get(
+            url_for('removecar', id=2),
+        )
+        self.assertIn(b'Please attach a review to the car first',response1.data)
