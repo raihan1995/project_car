@@ -64,7 +64,7 @@ def delete():
 
     return render_template("delete.html", title='Delete', cars=carData, form=form, message=error)
 
-@app.route('/removecar/<int:id>', methods=['GET', 'DEL'])
+@app.route('/removecar/<int:id>')
 def removecar(id):
     getreview = Review.query.filter_by(car_id=id).first()
     if not getreview:
