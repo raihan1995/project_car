@@ -30,6 +30,8 @@ def addcar():
             db.session.add(addnewcar)
             db.session.commit()
             return 'Car has been added please return to home page'
+            #return redirect(url_for('home'))
+
 
     return render_template('addcar.html', title='addcar', form=form, message=error)
 

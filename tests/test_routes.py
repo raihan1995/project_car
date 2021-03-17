@@ -6,7 +6,6 @@ from flask_testing import TestCase
 from application import app, db, routes
 from application.models import Cars, Review, UpdateReview, AddCar, DeleteCar
 
-
 class TestBase(TestCase):
     def create_app(self):
 
