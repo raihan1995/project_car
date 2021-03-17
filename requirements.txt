@@ -1,5 +1,6 @@
 flask
 Flask-SQLAlchemy
+SQLAlchemy<1.4
 flask-wtf
 pymysql
 pytest
