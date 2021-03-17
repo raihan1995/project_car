@@ -18,4 +18,5 @@ cd project_car
 pip install -r requirements.txt
 python3 app.py
 ```
-
+## Trello Board
+![trello](https://prnt.sc/10ocve0)
