@@ -30,21 +30,37 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 The flask application allows users to add cars into the website and create a review about it. They can also update a review with new information regarding the car or delete the car itself.
 
 What was considered during the design of the application:
- - Front end design using **FLask** framework, **python** coding language and **Jinja2** template engine
  - Flask framework used for the front-end which implements Werkzeug and WSGI to handle requests.
  - Jinja2 a template language to render pages.
- - CRUD functionality including ADD, SAVE, UPDATE and DELETE
+ - CRUD functionality including ADD, SAVE, UPDATE and DELETE.
  - Cloud integration by using a mySQL database hosted on GCP.
  - Unit Tests to validate the functionality of the application.
+
+## Database
+
+A 2 table database deisgn with a one to many relationship from Car to Review. The image below is showing the Entity Relationship Diagram.
+
+![Screenshot_56](https://user-images.githubusercontent.com/35694370/111640277-f4469080-87f3-11eb-9990-5c6272e8f7e6.png)
+
 
 ## Trello Board
 ![123](https://user-images.githubusercontent.com/35694370/111624169-3f0bdc80-87e3-11eb-8b1f-e299dbf01b63.png)
 
 For an updated trello board please click [here](https://trello.com/b/gdGyTHrR/projectcar)
 
+## Risk Assesment
 
 #### References
 
 https://qa-community.co.uk
 
+https://www.w3schools.com/
+
+https://flask.palletsprojects.com/en/1.1.x/
+
 https://www.youtube.com/watch?v=jTiyt6W1Qpo
+
+
+
+
+
