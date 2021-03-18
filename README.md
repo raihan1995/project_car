@@ -23,6 +23,7 @@ _Note: You will have to change the database connection string, try using sqlite_
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 ```
 ## Trello Board
-![trello](https://imgur.com/a/SnQDS1P)
 ![123](https://user-images.githubusercontent.com/35694370/111624169-3f0bdc80-87e3-11eb-8b1f-e299dbf01b63.png)
 
+For an updated trello board please click [here][trello-link]
+[trello-link]: https://trello.com/b/gdGyTHrR/projectcar
