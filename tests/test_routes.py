@@ -52,16 +52,12 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'tesla', response.data)
 
-    # def test_reviews_get(self):
-    #     response = self.client.get(url_for('reviews'))
-    #     self.assertEqual(response.status_code, 200)
-
 class TestAdd(TestBase):
     def test_addcar_post(self):
         response = self.client.post(
             url_for('addcar'),
             data = dict(newmodel="mazda"),
-            follow_redirects=True
+            #follow_redirects=True
         )
         self.assertIn(b'Car has been added please return to home page',response.data)
         #Test to see when data is queried at home page to see if the car exists
@@ -71,20 +67,18 @@ class TestAdd(TestBase):
     def test_addreview_post(self):
         response = self.client.post(
             url_for('reviews', id=1),
-            data = dict(newreview="nicecar"),
-            follow_redirects=True
+            data = dict(newreview="uglycar"),
         )
         self.assertIn(b'Review has been updated',response.data)
+
         #Test to see if the review exists when review is queried
         response1 = self.client.get(url_for('reviews', id=1))
-        self.assertIn(b'nicecar',response1.data)
+        self.assertIn(b'uglycar',response1.data)
 
 class TestDelete(TestBase):
     def test_deletecar_del(self):
         response = self.client.get(
             url_for('removecar', id=1),
-            #data = dict(deletemodel="mazda"),
-            #follow_redirects=True
         )
         self.assertIn(b'Car has been deleted, please return to home page',response.data)
         
