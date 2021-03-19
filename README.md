@@ -14,9 +14,9 @@ Author: Raihan Ahmed
 The virtual environment and the application dependencies can be configured using the following:
 ```bash
 git clone https://github.com/raihan1995/project_car.git
+cd project_car
 python3 -m venv venv
 source venv/bin/activate
-cd project_car
 pip install -r requirements.txt
 python3 app.py
 ```
@@ -50,14 +50,16 @@ For an updated trello board please click [here](https://trello.com/b/gdGyTHrR/pr
 
 ## Testing
 
-89% Coverage has been achieved on the application/routes.py file
+93% Coverage has been achieved on the application/routes.py file
 
-![Screenshot_58](https://user-images.githubusercontent.com/35694370/111642909-661fd980-87f6-11eb-9444-a9ea34536d5e.png)
+![Screenshot_59](https://user-images.githubusercontent.com/35694370/111764646-54444200-889b-11eb-9179-a1834171ea3c.png)
 
 ## Risk Assesment
 
+![Screenshot_60](https://user-images.githubusercontent.com/35694370/111767402-9622b780-889e-11eb-8959-3bee7edd583f.png)
 
 #### References
+
 
 https://qa-community.co.uk
 
