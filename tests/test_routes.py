@@ -60,9 +60,16 @@ class TestAdd(TestBase):
             #follow_redirects=True
         )
         self.assertIn(b'Car has been added please return to home page',response.data)
+       
+        response1 = self.client.post(
+            url_for('addcar'),
+            data = dict(newmodel=""),
+        )
+        self.assertIn(b'Please supply model',response1.data)
+
         #Test to see when data is queried at home page to see if the car exists
-        response1 = self.client.get(url_for('home'))
-        self.assertIn(b'mazda',response1.data)
+        response2 = self.client.get(url_for('home'))
+        self.assertIn(b'mazda',response2.data)
     
     def test_addreview_post(self):
         response = self.client.post(
@@ -70,7 +77,7 @@ class TestAdd(TestBase):
             data = dict(newreview="uglycar"),
         )
         self.assertIn(b'Review has been updated',response.data)
-
+        
         #Test to see if the review exists when review is queried
         response1 = self.client.get(url_for('reviews', id=1))
         self.assertIn(b'uglycar',response1.data)
