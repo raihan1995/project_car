@@ -48,13 +48,30 @@ A 2 table database deisgn with a one to many relationship from Car to Review. Th
 
 For an updated trello board please click [here](https://trello.com/b/gdGyTHrR/projectcar)
 
+## Website
+
+### Home Page
+
+![Screenshot_63](https://user-images.githubusercontent.com/35694370/111905697-ed628c80-8a44-11eb-9176-ca76a02608b2.png)
+
+### Review Page
+
+![Screenshot_65](https://user-images.githubusercontent.com/35694370/111905699-edfb2300-8a44-11eb-9e8e-29629ec7aa77.png)
+
+### Add Car Page
+
+![Screenshot_64](https://user-images.githubusercontent.com/35694370/111905698-edfb2300-8a44-11eb-8249-9429b4ba1c60.png)
+
+### Delete Car Page
+![Screenshot_66](https://user-images.githubusercontent.com/35694370/111905696-ed628c80-8a44-11eb-9589-d715ac74d8f6.png)
+
 ## Testing
 
 93% Coverage has been achieved on the application/routes.py file
 
 ![Screenshot_59](https://user-images.githubusercontent.com/35694370/111764646-54444200-889b-11eb-9179-a1834171ea3c.png)
 
-## Risk Assesment
+## Risk Assessment
 
 ![Screenshot_60](https://user-images.githubusercontent.com/35694370/111767402-9622b780-889e-11eb-8959-3bee7edd583f.png)
 
